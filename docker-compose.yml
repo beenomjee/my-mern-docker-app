@@ -6,19 +6,18 @@ services:
             - "27017:27017"
         volumes:
             - mongodb-data:/data/db
-    backend:
-         build:
-            context: pipeline-backend:${BUILD_NUMBER}
 
+    backend:
+        build:
+            context: pipeline-backend:${BUILD_NUMBER}
         ports:
             - "3001:3001"
         depends_on:
             - mongodb
 
     frontend:
-         build:
+        build:
             context: pipeline-frontend:${BUILD_NUMBER}
-
         ports:
             - "5173:5173"
         depends_on:
