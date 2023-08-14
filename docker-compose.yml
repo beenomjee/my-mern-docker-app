@@ -8,16 +8,15 @@ services:
             - mongodb-data:/data/db
 
     backend:
-        build:
-            context: ./backend
+        image: my-backend-image:${BUILD_NUMBER}
         ports:
             - "3001:3001"
         depends_on:
             - mongodb
 
     frontend:
-        build:
-            context: ./frontend
+        image: my-frontend-image:${BUILD_NUMBER}
+
         ports:
             - "5173:5173"
         depends_on:
