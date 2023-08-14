@@ -7,7 +7,8 @@ services:
         volumes:
             - mongodb-data:/data/db
     backend:
-        image: pipeline-backend:${BUILD_NUMBER}
+         build:
+            context: pipeline-backend:${BUILD_NUMBER}
 
         ports:
             - "3001:3001"
@@ -15,7 +16,8 @@ services:
             - mongodb
 
     frontend:
-        image: pipeline-frontend:${BUILD_NUMBER}
+         build:
+            context: pipeline-frontend:${BUILD_NUMBER}
 
         ports:
             - "5173:5173"
