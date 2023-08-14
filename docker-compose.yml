@@ -7,7 +7,7 @@ services:
         volumes:
             - mongodb-data:/data/db
     backend:
-        image: beenomjee/backend:latest
+        image: pipeline-backend:${BUILD_NUMBER}
 
         ports:
             - "3001:3001"
@@ -15,7 +15,7 @@ services:
             - mongodb
 
     frontend:
-        image: beenomjee/frontend:latest
+        image: pipeline-frontend:${BUILD_NUMBER}
 
         ports:
             - "5173:5173"
