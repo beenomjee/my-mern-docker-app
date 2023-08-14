@@ -9,7 +9,7 @@ services:
 
     backend:
         build:
-            context: pipeline-backend:${BUILD_NUMBER}
+            context: ./backend
         ports:
             - "3001:3001"
         depends_on:
@@ -17,7 +17,7 @@ services:
 
     frontend:
         build:
-            context: pipeline-frontend:${BUILD_NUMBER}
+            context: ./frontend
         ports:
             - "5173:5173"
         depends_on:
